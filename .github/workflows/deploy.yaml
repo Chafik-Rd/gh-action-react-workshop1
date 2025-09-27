@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   pull_request:
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
