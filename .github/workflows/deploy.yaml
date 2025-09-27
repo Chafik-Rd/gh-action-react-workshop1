@@ -1,0 +1,33 @@
+name: Depoly Project
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm i
+      - name: Run ESLint
+        run: npm run lint
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm i
+      - name: Build Project
+        run: npm run build
+      - name: List files
+        run: ls -l dist
+      - name: deploy
+        run: echo "Deploying..."
