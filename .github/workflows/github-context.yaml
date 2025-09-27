@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get Github Context
-        run: echo "${{ to JSON(guthub) }}"
+        run: echo "${{ to JSON(github) }}"
