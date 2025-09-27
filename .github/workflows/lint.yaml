@@ -6,7 +6,12 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    environment: development
     steps:
+      - name: Use repo variable
+        run: echo "API URL:${{ vars.API_URL }}"
+      - name: Use repo secret
+        run: echo "API KEY:${{ secrets.API_KEY }}"
       - name: Get Code
         uses: actions/checkout@v4
       - name: Install Node

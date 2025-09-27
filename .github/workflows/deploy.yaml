@@ -8,6 +8,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Use env variable
         run: echo "Node version:${{ env.NODE_VERSION }}"
