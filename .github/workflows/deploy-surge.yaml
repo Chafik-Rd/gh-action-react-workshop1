@@ -1,0 +1,45 @@
+name: Deploy Project
+on:
+  push:
+  workflow_dispatch:
+  pull_request:
+env:
+  NODE_VERSION: 20
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+
+      - name: Install and cache
+        uses: ./.github/actions/install-cache
+
+      - name: Build
+        run: npm run build
+      - name: upload dist folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-folder
+          path: dist/
+  deploy:
+    if: success()
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+
+      - name: Download dist folder
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-folder
+          path: dist
+      - name: deploy
+        uses: ./.github/actions/deploy-surge
+        with:
+          token: ${{secrets.SURGE_TOKEN}}
+          email: ${{secrets.EMAIL}}
+          dist-folder: dist
+          domain: work-surge2.surge.sh
