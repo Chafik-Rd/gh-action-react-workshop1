@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     container:
-      image: oven/bun:1
+      image: node
       env:
         NODE_ENV: production
     steps:
@@ -22,7 +22,7 @@ jobs:
         run: echo "API KEY:${{ secrets.API_KEY }}"
 
       - name: Get Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
       # - name: Install Node
       #   uses: actions/setup-node@v5
       #   with:
