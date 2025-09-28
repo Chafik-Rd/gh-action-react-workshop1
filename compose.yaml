@@ -1,0 +1,8 @@
+services:
+  web:
+    image: chafikr/react-demo
+    container_name: react
+    ports:
+      - 3000:3000
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
