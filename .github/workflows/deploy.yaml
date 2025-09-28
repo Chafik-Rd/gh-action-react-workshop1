@@ -12,7 +12,7 @@ jobs:
     container:
       image: node
       env:
-        NODE_ENV: production
+        NODE_ENV: dev
     steps:
       - name: Use env variable
         run: echo "Node version:${{ env.NODE_VERSION }}"
