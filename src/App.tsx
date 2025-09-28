@@ -26,7 +26,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Hello Github Actions workshop1
+        Hello Github Actions workshop1 use conditional
       </p>
     </>
   )
