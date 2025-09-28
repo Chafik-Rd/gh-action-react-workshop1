@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install and cache
-        uses: .github/actions/install-cache
+        uses: ./.github/actions/install-cache
 
       - name: Build
         run: npm run build
