@@ -24,7 +24,7 @@ async function main() {
     required: true,
     trimWhitespace: true,
   });
-  const command = `npx surge --token ${token} --login ${email} ${distFolder} ${domain}.surge.sh`;
+  const command = `npx surge --token ${token} --login ${email} ${distFolder} ${domain}`;
   return exec.exec(command);
 }
 main();
