@@ -41,5 +41,5 @@ jobs:
         with:
           token: ${{secrets.SURGE_TOKEN}}
           email: ${{secrets.EMAIL}}
-          dist-folder: dist
+          dist-folder: ./dist
           domain: work-surge2.surge.sh
