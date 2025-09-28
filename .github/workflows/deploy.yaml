@@ -45,6 +45,8 @@ jobs:
         with:
           name: dist-folder
           path: dist/
+      - name: Force failed
+        run: exit 1
   deploy:
     if: success()
     needs:
@@ -63,6 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - build
+      - depoly
     if: failure()
     steps:
     - name: Discord notification
